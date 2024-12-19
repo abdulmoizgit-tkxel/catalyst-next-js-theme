@@ -8,7 +8,22 @@ import {
 } from "@mui/x-data-grid-generator";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
+import { Typography } from "@mui/material";
+import DataGridPremiumTable from "./datagrid-premium";
+
+function QuickSearchToolbar() {
+  return (
+    <Box
+      sx={{
+        p: 0.5,
+        pb: 0,
+      }}
+    >
+      <GridToolbarQuickFilter />
+    </Box>
+  );
+}
 
 export default function ControlPinnedColumns() {
   const [pinnedColumns, setPinnedColumns] = React.useState({
@@ -24,6 +39,11 @@ export default function ControlPinnedColumns() {
 
   return (
     <Box sx={{ width: "35%" }}>
+      <Typography variant="h6">Data Grid</Typography>
+      <Typography mb={2} variant="body2">
+        Pinned Columns
+      </Typography>
+
       <Alert severity="info">
         <code>pinnedColumns: {JSON.stringify(pinnedColumns)}</code>
       </Alert>
@@ -33,9 +53,11 @@ export default function ControlPinnedColumns() {
           columns={columns}
           pinnedColumns={pinnedColumns}
           onPinnedColumnsChange={handlePinnedColumnsChange}
+          slots={{ toolbar: QuickSearchToolbar }}
         />
       </Box>
       <DataGridWithCheckbox />
+      <DataGridPremiumTable />
     </Box>
   );
 }
@@ -130,6 +152,9 @@ const DataGridWithCheckbox = () => {
 
   return (
     <Box style={{ width: "100%", mt: 3 }}>
+      <Typography my={2} variant="body2">
+        Data Grid with Checkbox
+      </Typography>
       <DataGrid
         rows={rows}
         columns={columns}
