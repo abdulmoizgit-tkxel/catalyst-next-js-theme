@@ -64,8 +64,8 @@ const createResponsiveTheme = (isSmallScreen) => {
       MuiFormHelperText: {
         ...themeJson.components.MuiFormHelperText,
       },
-      MuiTooltip: {
-        ...themeJson.components.MuiTooltip,
+      MuiPopper: {
+        ...themeJson.components.MuiPopper,
       },
       MuiTableCell: {
         ...themeJson.components.MuiTableCell,
@@ -225,6 +225,9 @@ const createResponsiveTheme = (isSmallScreen) => {
       },
       MuiDataGrid: {
         ...themeJson.components.MuiDataGrid,
+      },
+      MuiCard: {
+        ...themeJson.components.MuiCard,
       },
     },
   });
